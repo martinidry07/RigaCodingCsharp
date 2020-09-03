@@ -62,16 +62,5 @@ namespace Day04
             return number;
         }
     }
-    class Sample
-    {
-        public static void TestPrint()
-        {
-            Console.WriteLine("Hello World!");
-            PrivatePrint();
-        }
-        private static void PrivatePrint()
-        {
-            Console.WriteLine("This is private print!");
-        }
-    }
+
 }
