@@ -7,8 +7,13 @@ namespace Day05
         static void Main(string[] args)
         {
             //sample();
+            Task01();
+
+        }
+        static void Task01()
+        {
             Console.WriteLine("Lūdzu ievadiet divus skaitļus, ar kuriem veikt darbības -");
-            double num1 =InputDouble("Pirmais: ");
+            double num1 = InputDouble("Pirmais: ");
             double num2 = InputDouble("Otrais: ");
             Console.WriteLine("Ļūdzu izvēlieties, kādu darbību veikt -");
             Console.WriteLine("1 - saskaitīšana,");
@@ -16,7 +21,7 @@ namespace Day05
             Console.WriteLine("3 - reizināšana,");
             Console.WriteLine("4 - dalīšana,");
             int whatToDo = InputNumberBetween("ko darīsim? - : ", 1, 4);
-            double result=0;
+            double result = 0;
             switch (whatToDo)
             {
                 case 1:
@@ -33,7 +38,6 @@ namespace Day05
                     break;
             }
             Console.WriteLine("Rezultāts ir " + result);
-
         }
         static void sample()
         {
