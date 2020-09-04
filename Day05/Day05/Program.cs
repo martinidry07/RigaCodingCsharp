@@ -6,11 +6,11 @@ namespace Day05
     {
         static void Main(string[] args)
         {
-            //sample();
-            Task01();
+            sample();
+            //Task01();
 
         }
-        static void Task01()
+        private static void Task01()
         {
             Console.WriteLine("Lūdzu ievadiet divus skaitļus, ar kuriem veikt darbības -");
             double num1 = InputDouble("Pirmais: ");
@@ -39,11 +39,20 @@ namespace Day05
             }
             Console.WriteLine("Rezultāts ir " + result);
         }
-        static void sample()
+        private static void sample()
         {
-            Console.WriteLine("Hello World!");
+            int[] array =  { 1, 2, 3, 4 };
+            Console.WriteLine(string.Join(" ",array ));
+            array = addLine(array ,3);
+            Console.WriteLine(string.Join(" ", array));
         }
-        static int InputNumberBetween(String text, int num1, int num2)
+        private static int [] addLine(int [] newArr, int howMany)
+        {
+            int[] arr2 = new int [newArr.Length+howMany];
+            newArr.CopyTo(arr2, 0);
+            return arr2;
+        }
+        private static int InputNumberBetween(String text, int num1, int num2)
         {
             Boolean BadInput;
             int number = 0;
@@ -68,7 +77,7 @@ namespace Day05
             } while (BadInput);
             return number;
         }
-        static int InputNumber(String text)
+        private static int InputNumber(String text)
         {
             Boolean BadInput;
             int number = 0;
@@ -89,27 +98,27 @@ namespace Day05
             } while (BadInput);
             return number;
         }
-            static double InputDouble(String text)
+        private static double InputDouble(String text)
+        {
+            Boolean BadInput;
+            double number = 0;
+            do
             {
-                Boolean BadInput;
-                double number = 0;
-                do
+                BadInput = false;
+                Console.Write(text);
+                String input = Console.ReadLine();
+                try
                 {
-                    BadInput = false;
-                    Console.Write(text);
-                    String input = Console.ReadLine();
-                    try
-                    {
-                        number = Convert.ToDouble(input);
-                    }
-                    catch
-                    {
-                        BadInput = true;
-                        Console.WriteLine("Ievade neatbilst nosacījumiem !");
-                    }
-                } while (BadInput);
-                return number;
-            }
+                    number = Convert.ToDouble(input);
+                }
+                catch
+                {
+                    BadInput = true;
+                    Console.WriteLine("Ievade neatbilst nosacījumiem !");
+                }
+            } while (BadInput);
+            return number;
+        }
     }
 
 }
