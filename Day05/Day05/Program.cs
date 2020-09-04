@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Day05
 {
@@ -6,10 +7,44 @@ namespace Day05
     {
         static void Main(string[] args)
         {
-            sample();
+            //sample();
             //Task01();
+            Task02();
 
         }
+        private static void Task02()
+        {
+            List<String> myList = new List<String> ();
+            Boolean dan = false;
+            do
+            {
+                Console.Write("Lūdzu izvēlieties darbību (1- pievienot elementu, 2- izvadīt Listu, 3- iziet : ");
+                int whatToDo = InputNumberBetween("", 1, 3);
+                switch (whatToDo)
+                {
+                    case 1:
+                        Console.Write("Ievadiet List elementu: ");
+                        myList.Add(Console.ReadLine());
+                        break;
+                    case 2:
+                        Console.WriteLine();
+                        if (myList.Count == 0)
+                        {
+                            Console.WriteLine("Lists ir tukšs");
+                        }
+                        else
+                        {
+                            Console.WriteLine(string.Join(", ", myList));
+                        }
+                        Console.WriteLine();
+                        break;
+                    case 3:
+                        dan = true;
+                        break;
+                }
+            } while (!dan);
+        }
+
         private static void Task01()
         {
             Console.WriteLine("Lūdzu ievadiet divus skaitļus, ar kuriem veikt darbības -");
@@ -41,14 +76,22 @@ namespace Day05
         }
         private static void sample()
         {
-            int[] array =  { 1, 2, 3, 4 };
-            Console.WriteLine(string.Join(" ",array ));
-            array = addLine(array ,3);
+            List<String> lst = new List<String>() { "a", "b" };
+            foreach (String value in lst)
+            {
+                Console.WriteLine(value);
+            }
+        }
+        private static void sampleWithArray()
+        {
+            int[] array = { 1, 2, 3, 4 };
+            Console.WriteLine(string.Join(" ", array));
+            array = addLine(array, 3);
             Console.WriteLine(string.Join(" ", array));
         }
-        private static int [] addLine(int [] newArr, int howMany)
+        private static int[] addLine(int[] newArr, int howMany)
         {
-            int[] arr2 = new int [newArr.Length+howMany];
+            int[] arr2 = new int[newArr.Length + howMany];
             newArr.CopyTo(arr2, 0);
             return arr2;
         }
