@@ -6,14 +6,14 @@ namespace Day06
 {
     class Student
     {
-        public String name;
-        public String surname;
+        public String Name;
+        public String Surname;
 
      
 
 
         private int _course;
-        public int course
+        public int Course
         {
             get
             {
@@ -38,7 +38,7 @@ namespace Day06
         }
         public void PrintInfo()
         {
-            Console.WriteLine(name + " " + surname + " " + course + ". kurss");
+            Console.WriteLine(Name + " " + Surname + " " + Course + ". kurss");
         }
 
     }

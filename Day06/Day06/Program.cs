@@ -30,18 +30,18 @@ namespace Day06
             Console.WriteLine("Ievadam studentu Nr.1:" );
             Student student1 = new Student();
             Console.Write("Vārds: ");
-            student1.name = Console.ReadLine();
+            student1.Name = Console.ReadLine();
             Console.Write("Uzvārds: ");
-            student1.surname = Console.ReadLine();
-            student1.course = InputNumber("Kurss: ");
+            student1.Surname = Console.ReadLine();
+            student1.Course = InputNumber("Kurss: ");
 
             Console.WriteLine("Ievadam studentu Nr.2:");
             Student student2 = new Student();
             Console.Write("Vārds: ");
-            student2.name = Console.ReadLine();
+            student2.Name = Console.ReadLine();
             Console.Write("Uzvārds: ");
-            student2.surname = Console.ReadLine();
-            student2.course = InputNumber("Kurss: ");
+            student2.Surname = Console.ReadLine();
+            student2.Course = InputNumber("Kurss: ");
 
             Console.WriteLine(" ");
             Console.WriteLine("Izvade:");
