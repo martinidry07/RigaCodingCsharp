@@ -78,19 +78,7 @@ namespace Day05
                         lst.Add(Console.ReadLine());
                         break;
                     case "3":
-                        if (lst.Count == 0)
-                        {
-                            Console.WriteLine("Saraksts ir tukšs !");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Lūdzu izvēlaties izdzēšamo elementa numuru: ");
-                            for (int i = 0; i < lst.Count; i++)
-                            {
-                                Console.WriteLine("elements Nr " + i + " - " + lst[i]);
-                            }
-                            lst.RemoveAt(InputNumberBetween("", 0, lst.Count - 1));
-                        }
+                        RemoveElement(lst);
                         break;
                     case "0":
                         break;
@@ -98,6 +86,22 @@ namespace Day05
                         Console.WriteLine("Nepareiza ievade");
                         break;
                 }
+            }
+        }
+        private static void RemoveElement(List<String> lst)
+        {
+            if (lst.Count == 0)
+            {
+                Console.WriteLine("Saraksts ir tukšs !");
+            }
+            else
+            {
+                Console.WriteLine("Elementu saraksts: ");
+                for (int i = 0; i < lst.Count; i++)
+                {
+                    Console.WriteLine("elements Nr " + i + " - " + lst[i]);
+                }
+                lst.RemoveAt(InputNumberBetween("Lūdzu izvēlaties izdzēšamo elementa numuru: ", 0, lst.Count - 1));
             }
         }
 
