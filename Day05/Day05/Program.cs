@@ -16,6 +16,7 @@ namespace Day05
         {
             List<String> myList = new List<String> ();
             Boolean dan = false;
+
             do
             {
                 Console.Write("Lūdzu izvēlieties darbību (1- pievienot elementu, 2- izvadīt Listu, 3- iziet : ");
