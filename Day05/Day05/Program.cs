@@ -9,12 +9,13 @@ namespace Day05
         {
             //sample();
             //Task01();
-            Task02();
+            //Task02();
+            Task2MartinaVariants();
 
         }
         private static void Task02()
         {
-            List<String> myList = new List<String> ();
+            List<String> myList = new List<String>();
             Boolean dan = false;
 
             do
@@ -44,6 +45,60 @@ namespace Day05
                         break;
                 }
             } while (!dan);
+        }
+        private static void Task2MartinaVariants()
+        {
+            List<String> lst = new List<String>();
+
+            String choice = "";
+
+            while (choice != "0")
+            {
+                Console.WriteLine("1- Izvadīt");
+                Console.WriteLine("2- Pievienot");
+                Console.WriteLine("3- Izdzēst");
+                Console.WriteLine("0- Iziet");
+
+                choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        if (lst.Count == 0)
+                        {
+                            Console.WriteLine("Saraksts ir tukšs !");
+                        }
+                        else
+                        {
+                            Console.WriteLine(string.Join(", ", lst));
+                        }
+                        break;
+                    case "2":
+                        Console.WriteLine("Lūdzu ievadiet elementu: ");
+                        lst.Add(Console.ReadLine());
+                        break;
+                    case "3":
+                        if (lst.Count == 0)
+                        {
+                            Console.WriteLine("Saraksts ir tukšs !");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Lūdzu izvēlaties izdzēšamo elementa numuru: ");
+                            for (int i = 0; i < lst.Count; i++)
+                            {
+                                Console.WriteLine("elements Nr " + i + " - " + lst[i]);
+                            }
+                            lst.RemoveAt(InputNumberBetween("", 0, lst.Count - 1));
+                        }
+                        break;
+                    case "0":
+                        break;
+                    default:
+                        Console.WriteLine("Nepareiza ievade");
+                        break;
+                }
+            }
         }
 
         private static void Task01()
@@ -98,36 +153,30 @@ namespace Day05
         }
         private static int InputNumberBetween(String text, int num1, int num2)
         {
-            Boolean BadInput;
+
             int number = 0;
-            do
+            Console.Write(text);
+            String input = Console.ReadLine();
+            try
             {
-                BadInput = false;
-                Console.Write(text);
-                String input = Console.ReadLine();
-                try
-                {
-                    number = Convert.ToInt32(input);
-                }
-                catch
-                {
-                    BadInput = true;
-                }
-                if (number < num1 || number > num2 || BadInput)
-                {
-                    Console.WriteLine("ievade neatbilst nosacījumiem !");
-                    BadInput = true;
-                }
-            } while (BadInput);
+                number = Convert.ToInt32(input);
+            }
+            catch
+            {
+                return InputNumberBetween("Ievade neatbilst nosacījumiem ! Mēģini vēlreiz: ", num1, num2);
+            }
+            if (number < num1 || number > num2 )
+            {
+                return InputNumberBetween("Ievade neatbilst nosacījumiem ! Mēģini vēlreiz: ", num1, num2);
+            }
             return number;
         }
         private static int InputNumber(String text)
         {
-            Boolean BadInput;
+            
             int number = 0;
-            do
-            {
-                BadInput = false;
+            
+                
                 Console.Write(text);
                 String input = Console.ReadLine();
                 try
@@ -136,10 +185,10 @@ namespace Day05
                 }
                 catch
                 {
-                    BadInput = true;
-                    Console.WriteLine("Ievade neatbilst nosacījumiem !");
+
+                return InputNumber("Ievade neatbilst nosacījumiem ! Mēģini vēlreiz: ");
                 }
-            } while (BadInput);
+            ;
             return number;
         }
         private static double InputDouble(String text)
