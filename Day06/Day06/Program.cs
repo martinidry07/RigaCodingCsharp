@@ -9,7 +9,7 @@ namespace Day06
         static void Main(string[] args)
         {
             //Sample();
-            Task01();
+            Task02();
         }
         private static void Sample()
         {
@@ -25,7 +25,7 @@ namespace Day06
             car1.PrintInfo();
             car2.PrintInfo();
         }
-        private static void Task01()
+        private static void Task02()
         {
             Console.WriteLine("Ievadam studentu Nr.1:" );
             Student student1 = new Student();
