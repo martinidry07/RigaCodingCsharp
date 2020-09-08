@@ -6,18 +6,23 @@ namespace Day07
     {
         static void Main(string[] args)
         {
-            //sample();
-            Task01();
+            sample();
+            //Task01();
 
         }
         private static void sample()
         {
-            Console.WriteLine("Hello World!");
+            Car car1 = new Car("BMW", "M3", "White");
+            car1.PrintInfo();
+
+            Car c2 = new Car();
+            c2.PrintInfo();
         }
+
         private static void Task01()
         {
             Console.WriteLine("Ievadam studentu Nr.1:");
-            
+
             Console.Write("Vārds: ");
             String name = Console.ReadLine();
             Console.Write("Uzvārds: ");
@@ -27,10 +32,10 @@ namespace Day07
 
             Console.WriteLine("Ievadam studentu Nr.2:");
             Console.Write("Vārds: ");
-             name = Console.ReadLine();
+            name = Console.ReadLine();
             Console.Write("Uzvārds: ");
-             surname = Console.ReadLine();
-             course = InputNumber("Kurss: ");
+            surname = Console.ReadLine();
+            course = InputNumber("Kurss: ");
             Student student2 = new Student(name, surname, course);
 
             Console.WriteLine(" ");

@@ -6,11 +6,11 @@ namespace Day07
 {
     class Student
     {
-        public String Name;
-        public String Surname;
-        public int Course;
+        public String Name { get; set; }
+        public String Surname { get; set; }
+        public int Course { get; set; }
 
-        public Student (String _name, String _surname, int _course)
+    public Student (String _name, String _surname, int _course)
         {
             this.Name = _name;
             this.Surname = _surname;
@@ -27,7 +27,7 @@ namespace Day07
                 this.Course  = _course;
             }
         }
-        
+                
         public void PrintInfo()
         {
             Console.WriteLine(Name + " " + Surname + " " + Course + ". kurss");
