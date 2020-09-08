@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Day07
 {
@@ -6,11 +7,27 @@ namespace Day07
     {
         static void Main(string[] args)
         {
-            sample();
-            //Task01();
+            //sampleCar();
+            Task02();
+            //sampleList();
 
         }
-        private static void sample()
+
+        private static void sampleList()
+        {
+            List<Car> listOfCars = new List<Car>();
+
+            listOfCars.Add(new Car("Audi", "Coupe", "Blue"));
+            listOfCars.Add(new Car("Opel", "Kadet", "Red"));
+
+            listOfCars [0].color = "Black";
+
+            foreach (Car car in listOfCars)
+            {
+                car.PrintInfo ();
+            }
+        }
+        private static void sampleCar()
         {
             Car car1 = new Car("BMW", "M3", "White");
             car1.PrintInfo();
@@ -19,29 +36,34 @@ namespace Day07
             c2.PrintInfo();
         }
 
-        private static void Task01()
+        private static void Task02()
+
         {
-            Console.WriteLine("Ievadam studentu Nr.1:");
+            List<Student> listOfStudents = new List<Student >();
+            String name = "";
+            String surname = "";
+            int course = 0;
 
-            Console.Write("Vārds: ");
-            String name = Console.ReadLine();
-            Console.Write("Uzvārds: ");
-            String surname = Console.ReadLine();
-            int course = InputNumber("Kurss: ");
-            Student student1 = new Student(name, surname, course);
-
-            Console.WriteLine("Ievadam studentu Nr.2:");
-            Console.Write("Vārds: ");
-            name = Console.ReadLine();
-            Console.Write("Uzvārds: ");
-            surname = Console.ReadLine();
-            course = InputNumber("Kurss: ");
-            Student student2 = new Student(name, surname, course);
+            for ( int i=0; i<2; i++)
+            {
+                int j = i + 1;
+                Console.WriteLine("Ievadam studentu Nr. " + j + ":");
+                Console.Write("Vārds: ");
+                name = Console.ReadLine();
+                Console.Write("Uzvārds: ");
+                surname = Console.ReadLine();
+                course = InputNumber("Kurss: ");
+                listOfStudents.Add(new Student(name, surname, course));
+            }
 
             Console.WriteLine(" ");
             Console.WriteLine("Izvade:");
-            student1.PrintInfo();
-            student2.PrintInfo();
+
+
+            foreach (Student  st in listOfStudents )
+            {
+                st.PrintInfo();
+            }
         }
         private static int InputNumber(String text)
         {
