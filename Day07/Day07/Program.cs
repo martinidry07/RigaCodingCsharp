@@ -67,47 +67,7 @@ namespace Day07
                 st.PrintInfo();
             }
         }
-        private static int InputNumber(String text)
-        {
-
-            int number = 0;
-
-
-            Console.Write(text);
-            String input = Console.ReadLine();
-            try
-            {
-                number = Convert.ToInt32(input);
-            }
-            catch
-            {
-
-                return InputNumber("Ievade neatbilst nosacījumiem ! Mēģini vēlreiz: ");
-            }
-            
-            return number;
-        }
-
-        private static int InputNumberBetween(String text, int num1, int num2)
-        {
-
-            int number = 0;
-            Console.Write(text);
-            String input = Console.ReadLine();
-            try
-            {
-                number = Convert.ToInt32(input);
-            }
-            catch
-            {
-                return InputNumberBetween("Ievade neatbilst nosacījumiem ! Mēģini vēlreiz: ", num1, num2);
-            }
-            if (number < num1 || number > num2)
-            {
-                return InputNumberBetween("Ievade neatbilst nosacījumiem ! Mēģini vēlreiz: ", num1, num2);
-            }
-            return number;
-        }
+        
         private static void MD()
         {
             List<Student> listOfStudents = new List<Student>();            
@@ -176,6 +136,48 @@ namespace Day07
                 int rem = InputNumberBetween("Lūdzu izvēlaties izdzēšamo studentu numuru: ", 1, lst.Count) - 1;
                 lst.RemoveAt(rem);
             }
+        }
+
+        private static int InputNumber(String text)
+        {
+
+            int number = 0;
+
+
+            Console.Write(text);
+            String input = Console.ReadLine();
+            try
+            {
+                number = Convert.ToInt32(input);
+            }
+            catch
+            {
+
+                return InputNumber("Ievade neatbilst nosacījumiem ! Mēģini vēlreiz: ");
+            }
+
+            return number;
+        }
+
+        private static int InputNumberBetween(String text, int num1, int num2)
+        {
+
+            int number = 0;
+            Console.Write(text);
+            String input = Console.ReadLine();
+            try
+            {
+                number = Convert.ToInt32(input);
+            }
+            catch
+            {
+                return InputNumberBetween("Ievade neatbilst nosacījumiem ! Mēģini vēlreiz: ", num1, num2);
+            }
+            if (number < num1 || number > num2)
+            {
+                return InputNumberBetween("Ievade neatbilst nosacījumiem ! Mēģini vēlreiz: ", num1, num2);
+            }
+            return number;
         }
 
     }
