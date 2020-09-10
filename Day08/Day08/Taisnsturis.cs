@@ -17,8 +17,8 @@ namespace Day08
 
         public void PrintInfo()
         {
-            int sqsquare = Xedge * Yedge;
-            Console.WriteLine("x mala - " + Xedge + " cm.; y mala -  " + Yedge + " cm.;laukums - " + sqsquare + " cm2");
+            int square = Xedge * Yedge;
+            Console.WriteLine("x mala - " + Xedge + " cm.; y mala -  " + Yedge + " cm.; laukums - " + square + " cm2");
         }
 
 

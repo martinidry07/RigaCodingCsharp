@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Day08
 {
@@ -8,7 +9,34 @@ namespace Day08
         static void Main(string[] args)
         {
             //sample();
-            Task01();
+            //Task01();
+            Extra();
+        }
+
+        private static void Extra()
+        {
+            List<int> listA = new List<int>() { 1, 2, 3, 4 };
+            List<int> listB = new List<int>() { 99, 1, 7, 3 };
+            List<int> result = new List<int>();
+
+            foreach (int element in listA )
+            {
+                for (int i=0; i<listB.Count; i++)
+                {
+                    if (element==listB[i])
+                    {
+                        result.Add(element);
+                        break;
+                    }
+                }
+            }
+
+            Console.WriteLine(" ");
+            Console.Write("Abu sarakstu kopīgie elementi ir: ");
+            foreach (int rez in result )
+            {
+                Console.Write(rez + " ");
+            }
         }
 
         private static void Task01()
@@ -18,18 +46,17 @@ namespace Day08
             int Xedge = 0;
             int Yedge = 0;
 
-            for (int i=0; i<10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                int j = i + 1;
                 Console.WriteLine(" ");
-                Console.WriteLine(j + ".taisnstūris.");
-                Xedge = InputNumber((i+1) + "x malas garums: ");
+                Console.WriteLine((i + 1) + ".taisnstūris.");
+                Xedge = InputNumber("x malas garums: ");
                 Yedge = InputNumber("y malas garums: ");
                 listOfRectangle.Add(new Taisnsturis(Xedge, Yedge));
             }
 
             Console.WriteLine(" ");
-            Console.WriteLine("Pavisam " + listOfRectangle.Count + ".taisnstūri:");
+            Console.WriteLine("Pavisam " + listOfRectangle.Count + " taisnstūri:");
             foreach (Taisnsturis rec in listOfRectangle)
             {
                 rec.PrintInfo();
@@ -80,5 +107,5 @@ namespace Day08
             }
             return number;
         }
-    }    
+    }
 }
