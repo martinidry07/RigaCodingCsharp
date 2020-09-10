@@ -8,9 +8,9 @@ namespace Day08
     {
         static void Main(string[] args)
         {
-            //sample();
+            sample();
             //Task01();
-            Extra();
+            //Extra();
         }
 
         private static void Extra()
@@ -37,6 +37,7 @@ namespace Day08
             {
                 Console.Write(rez + " ");
             }
+
         }
 
         private static void Task01()
@@ -64,7 +65,9 @@ namespace Day08
         }
         private static void sample()
         {
-            Console.WriteLine("Hello World!");
+            System.IO.DriveInfo di = new System.IO.DriveInfo(@"C:\");
+            Console.WriteLine("TotalFreeSpace  " + di.TotalFreeSpace);
+            Console.WriteLine("VolumeLabel  " + di.VolumeLabel);
         }
         private static int InputNumber(String text)
         {
