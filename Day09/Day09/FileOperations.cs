@@ -29,22 +29,28 @@ namespace Day09
                 Console.WriteLine("Neizdevas nolasit failu!");
             }
         }
-        public static void Write()
+        public static void Write(List<String> lst)
         {
-
+            string[] files = System.IO.Directory.GetFiles(@"D:\Github\", "Test.txt");
+            System.IO.FileInfo fi = null;
             try
             {
-                
-                StreamWriter sw = new StreamWriter(defaultName + "Test.txt", false);
-                sw.WriteLine("Hello, Mārtiņ!");
-                sw.WriteLine("Es nomainu ierakstu.");
-
-                sw.Close();
+                fi = new System.IO.FileInfo(files[0]);
             }
-            catch
+            catch (System.IO.FileNotFoundException e)
             {
                 Console.WriteLine("Neizdevas ierakstit faila!");
+                Console.WriteLine(e.Message);
             }
+
+            StreamWriter sw = new StreamWriter(defaultName + "Test.txt", false);
+            foreach (String line in lst)
+            {
+                sw.WriteLine(line);
+            }
+            sw.Close();
+
+            
         }
     }
 }
