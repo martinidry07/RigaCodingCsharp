@@ -31,23 +31,32 @@ namespace Day09
         }
         public static void Write(List<String> lst)
         {
-            string[] files = System.IO.Directory.GetFiles(@"D:\Github\", "Test.txt");
-            if (files.Length==0)
-            {
-                Console.WriteLine("Neizdevas ierakstit failā");
-            }
-            else
+            try
             {
                 StreamWriter sw = new StreamWriter(defaultName + "Test.txt", false);
-                foreach (String line in lst)
-                {
-                    sw.WriteLine(line);
-                }
+                sw.Write("");
                 sw.Close();
             }
-            
+            catch
+            {
+                Console.WriteLine("Neizdevas ierakstit faila!");
+            }
 
 
+            foreach (String line in lst)
+            {
+                try
+                {
+                    StreamWriter sw = new StreamWriter(defaultName + "Test.txt", true);
+                    sw.WriteLine(line);
+
+                    sw.Close();
+                }
+                catch
+                {
+                    Console.WriteLine("Neizdevas ierakstit faila!");
+                }
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Day09
         {
             List<String> lst = new List<String>() { "Ābols","Burkāns","Tomāts","Redīs","Gurķis","Biete","Kartupelis"};
             FileOperations.Write(lst);
-            //FileOperations.Read("Test");
+            FileOperations.Read("Test");
         }
         private static void sampleFileOperations()
         {
