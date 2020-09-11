@@ -8,8 +8,9 @@ namespace Day09
     class FileOperations
     {
         private const String defaultName = @"D:\Github\";
-        public static void Read(String name)
+        public static List<String> Read(string name)
         {
+            List<String> lst = new List<String>();
             try
             {
                 System.IO.StreamReader sr = new StreamReader(defaultName + name + ".txt");
@@ -18,7 +19,7 @@ namespace Day09
 
                 while (line != null)
                 {
-                    Console.WriteLine(line);
+                    lst.Add(line);
                     line = sr.ReadLine();
                 }
 
@@ -28,12 +29,13 @@ namespace Day09
             {
                 Console.WriteLine("Neizdevas nolasit failu!");
             }
+            return lst;
         }
-        public static void Write(List<String> lst)
+        public static void Write(String name, List<String> lst)
         {
             try
             {
-                StreamWriter sw = new StreamWriter(defaultName + "Test.txt", false);
+                StreamWriter sw = new StreamWriter(defaultName + name + ".txt", false);
                 sw.Write("");
                 sw.Close();
             }
@@ -47,7 +49,7 @@ namespace Day09
             {
                 try
                 {
-                    StreamWriter sw = new StreamWriter(defaultName + "Test.txt", true);
+                    StreamWriter sw = new StreamWriter(defaultName + name + ".txt", true);
                     sw.WriteLine(line);
 
                     sw.Close();

@@ -7,14 +7,28 @@ namespace Day09
     {
         static void Main(string[] args)
         {
-            Task02();
+            Task03(); 
+            //Task02();
             //Task01();
             //sampleFileOperations();
+        }
+
+        private static void Task03()
+        {
+            List<String> lst= new List<String>();
+            List<String> newLst = new List<String>();
+            lst = FileOperations.Read("Test");
+            for (int i=lst.Count-1; i>-1; i--)
+            {
+                newLst.Add(lst[i]);
+            }
+            FileOperations.Write("new", newLst );
+
         }
         private static void Task02()
         {
             List<String> lst = new List<String>() { "Ābols","Burkāns","Tomāts","Redīs","Gurķis","Biete","Kartupelis"};
-            FileOperations.Write(lst);
+            FileOperations.Write("Test", lst);
             FileOperations.Read("Test");
         }
         private static void sampleFileOperations()
