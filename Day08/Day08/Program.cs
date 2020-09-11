@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 
 namespace Day08
 {
@@ -66,8 +67,13 @@ namespace Day08
         private static void sample()
         {
             System.IO.DriveInfo di = new System.IO.DriveInfo(@"C:\");
-            Console.WriteLine("TotalFreeSpace  " + di.TotalFreeSpace);
-            Console.WriteLine("VolumeLabel  " + di.VolumeLabel);
+            System.IO.DirectoryInfo dirInfo = di.RootDirectory;
+            System.IO.DirectoryInfo[] dirInfos = dirInfo.GetDirectories("*.*");
+
+            foreach (System.IO.DirectoryInfo d in dirInfos)
+            {
+                Console.WriteLine(d.Name);
+            }
         }
         private static int InputNumber(String text)
         {
