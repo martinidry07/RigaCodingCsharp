@@ -31,22 +31,9 @@ namespace Day09
             }
             return lst;
         }
-        public static void Write(String name, List<String> lst)
+        public static void Write(String name, String line)
         {
-            try
-            {
-                StreamWriter sw = new StreamWriter(defaultName + name + ".txt", false);
-                sw.Write("");
-                sw.Close();
-            }
-            catch
-            {
-                Console.WriteLine("Neizdevas ierakstit faila!");
-            }
-
-
-            foreach (String line in lst)
-            {
+            
                 try
                 {
                     StreamWriter sw = new StreamWriter(defaultName + name + ".txt", true);
@@ -58,7 +45,7 @@ namespace Day09
                 {
                     Console.WriteLine("Neizdevas ierakstit faila!");
                 }
-            }
+            
         }
     }
 }
