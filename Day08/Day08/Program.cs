@@ -9,7 +9,7 @@ namespace Day08
     {
         static void Main(string[] args)
         {
-            sample();
+            getFileNnames ();
             //Task01();
             //Extra();
         }
@@ -64,15 +64,28 @@ namespace Day08
                 rec.PrintInfo();
             }
         }
-        private static void sample()
+        private static void getFileNnames()
         {
-            System.IO.DriveInfo di = new System.IO.DriveInfo(@"C:\");
-            System.IO.DirectoryInfo dirInfo = di.RootDirectory;
-            System.IO.DirectoryInfo[] dirInfos = dirInfo.GetDirectories("*.*");
+            string[] files = System.IO.Directory.GetFiles(@"D:\Github\", "*.txt");
 
-            foreach (System.IO.DirectoryInfo d in dirInfos)
+            for (int i=0; i<files.Length; i++)
             {
-                Console.WriteLine(d.Name);
+                // Create the FileInfo object only when needed to ensure
+                // the information is as current as possible.
+                System.IO.FileInfo fi = null;
+                try
+                {
+                    fi = new System.IO.FileInfo(files[i]);
+                }
+                catch (System.IO.FileNotFoundException e)
+                {
+                    // To inform the user and continue is
+                    // sufficient for this demonstration.
+                    // Your application may require different behavior.
+                    Console.WriteLine(e.Message);
+                    continue;
+                }
+                Console.WriteLine("{0} : {1}", i+1 , fi.Name);
             }
         }
         private static int InputNumber(String text)
