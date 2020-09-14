@@ -7,12 +7,15 @@ namespace Day09
     {
         static void Main(string[] args)
         {
+
             Task04(); 
             //Task02();
             //Task01();
             //sampleFileOperations();
             //getFileNnames();
+
         }
+
 
         private static void Task04()
         {
