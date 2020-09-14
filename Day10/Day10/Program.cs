@@ -7,7 +7,56 @@ namespace Day10
     {
         static void Main(string[] args)
         {
-            Task1();
+            //Task1();
+            int key = readFromKey();
+            Console.WriteLine(key);
+
+        }
+
+        private static int readFromKey()
+        {
+
+            //Console.WriteLine("... Press 1, 2, 3");
+            int key = -1;
+            ConsoleKeyInfo info = Console.ReadKey();
+
+
+            if (info.KeyChar == '1')
+            {
+                Console.WriteLine("... Press 1, 2, 3");
+                key = 1;
+                return key;
+            }
+            info = Console.ReadKey();
+            if (info.KeyChar == '2')
+            {
+                Console.WriteLine("... Press 1, 2, 3");
+                key = 2;
+                return key;
+            }
+            info = Console.ReadKey();
+            if (info.KeyChar == '3')
+            {
+                Console.WriteLine("... Press 1, 2, 3");
+                key = 3;
+                return key;
+            }
+            info = Console.ReadKey();
+            if (info.KeyChar == '4')
+            {
+                Console.WriteLine("... Press 1, 2, 3");
+                key = 4;
+                return key;
+            }
+            if (info.KeyChar == '0')
+            {
+                Console.WriteLine("... Press 1, 2, 3");
+                key = 0;
+                return key;
+            }
+            Console.Read();
+            return key;
+
         }
 
         static void Task1()
@@ -21,11 +70,12 @@ namespace Day10
             while (choice != "0")
             {
                 Console.Write("0 - Iziet, 1- Pievienot sarakstam, 2 - Dzēst, 3 - Skaitļu summa, 4 - Vidējā vērtība: ");
-               choice = Console.ReadLine();
+                choice = Console.ReadLine();
+                //choice = readFromKey();
                 Console.WriteLine(" ");
 
                 switch (choice)
-                {                   
+                {
                     case "1":
                         AddElement(lst);
                         PrintLst(lst);
@@ -42,7 +92,7 @@ namespace Day10
                         break;
                     case "4":
                         double avg = avgList(lst);
-                        if (avg!=0)
+                        if (avg != 0)
                         {
                             Console.WriteLine("Saraksta skaitļu vidējais ir " + avg);
                             Console.WriteLine(" ");
@@ -62,7 +112,7 @@ namespace Day10
                 Console.WriteLine("Saraksts ir tukss!");
                 return 0;
             }
-            return (sumList(lst)/ (double)lst.Count);
+            return (sumList(lst) / (double)lst.Count);
         }
 
         private static int sumList(List<int> lst)
