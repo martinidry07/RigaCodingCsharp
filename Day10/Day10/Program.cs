@@ -15,31 +15,64 @@ namespace Day10
             List<int> lst = FileOperations.Read();
 
             String choice = "";
+            PrintLst(lst);
+
 
             while (choice != "0")
             {
-                Console.Write("1- Izvadīt, 2- Pievienot, 3- Dzēst, 0- Iziet: ");
+                Console.Write("0 - Iziet, 1- Pievienot sarakstam, 2 - Dzēst, 3 - Skaitļu summa, 4 - Vidējā vērtība: ");
                choice = Console.ReadLine();
                 Console.WriteLine(" ");
 
                 switch (choice)
-                {
+                {                   
                     case "1":
+                        AddElement(lst);
                         PrintLst(lst);
                         break;
                     case "2":
-                        AddElement(lst);
-                        break;
-                    case "3":
                         RemoveElement(lst);
+                        PrintLst(lst);
                         break;
                     case "0":
+                        break;
+                    case "3":
+                        Console.WriteLine("Saraksta skaitļu summa ir " + sumList(lst));
+                        Console.WriteLine(" ");
+                        break;
+                    case "4":
+                        double avg = avgList(lst);
+                        if (avg!=0)
+                        {
+                            Console.WriteLine("Saraksta skaitļu vidējais ir " + avg);
+                            Console.WriteLine(" ");
+                        }
                         break;
                     default:
                         Console.WriteLine("Nepareiza ievade");
                         break;
                 }
             }
+        }
+
+        private static double avgList(List<int> lst)
+        {
+            if (lst.Count == 0)
+            {
+                Console.WriteLine("Saraksts ir tukss!");
+                return 0;
+            }
+            return (sumList(lst)/ (double)lst.Count);
+        }
+
+        private static int sumList(List<int> lst)
+        {
+            int sum = 0;
+            foreach (int number in lst)
+            {
+                sum += number;
+            }
+            return sum;
         }
 
         private static void PrintLst(List<int> lst)
