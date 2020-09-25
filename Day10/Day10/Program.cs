@@ -8,9 +8,51 @@ namespace Day10
         static void Main(string[] args)
         {
             //Task1();
-            int key = readFromKey();
-            Console.WriteLine(key);
+            //int key = readFromKey();
+            //Console.WriteLine(key);
+            test1();
 
+        }
+        private static void test1()
+        {
+
+            // "DateTime" is a inbuilt class 
+            // for date and time 
+            DateTime d = DateTime.Now;
+
+            // print the system date and time 
+            Console.WriteLine("System date: {0:d}\n" +
+                            "System time: {0:t}", d);
+
+            Console.Write("Press 'E' to exit the process...");
+
+            // here it asks to press "E" to exit 
+            // The key "E" is shown in the console  
+            // output window because of "false" 
+            while (Console.ReadKey(false).Key != ConsoleKey.E)
+            {
+            }
+
+
+        }
+        private static void Test()
+        {
+            List<String> keyss = new List<String>();
+            //keyss.Add("");
+            String key = "";
+            int keyI = -1;
+            ConsoleKeyInfo info = Console.ReadKey();
+
+            while (Console.ReadKey().Key != ConsoleKey.E)
+            {
+            }
+            while (info.KeyChar != '1')
+            {
+                
+                key = info.KeyChar.ToString();
+                keyss.Add(key);
+            }
+            Console.WriteLine(key);
         }
 
         private static int readFromKey()
